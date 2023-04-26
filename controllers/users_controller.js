@@ -2,7 +2,7 @@ const User = require('../models/user');
 
 
 
-module.exports.profile =function(req,res){
+module.exports.home =function(req,res){
     // res.end('<h1>profile</h1>')
     return res.render('user_profile',{
         title: 'User Profile'
@@ -22,31 +22,69 @@ module.exports.signIn =  function(req,res){
     })
 }
 // sign up
-module.exports.create = function(req,res){
-
-    if(req.body.password != req.body.confirm_password){
+module.exports.create = async function(req, res){
+    if (req.body.password != req.body.confirm_password){
         return res.redirect('back');
     }
 
-    User.findOne({email: req.body.email},function(err, user){
-        if(err){
-            console.log('error in finding user in signin up');
-            return
-        }
-        if(!user){
-            User.Creat(req.body, function(err, user){
-            if(err){console.log('error in creating user while signing up');
-        return
-            }
-            return res.redirect('/users/sign-in');
+    User.findOne({email: req.body.email}, function(err, user){
+       console.log(req.body.email);
+        
+        if(err){console.log('error in finding user in signing up'); return}
 
+        if (!user){
+            User.create(req.body, function(err, user){
+                if(err){console.log(err); return}
+
+                return res.redirect('/users/sign-in');
             })
         }else{
             return res.redirect('back');
         }
+
     });
-   
+    // try{
+    //     let {email}=req.body;
+    //     email=email.toLowerCase();
+    //     const user=await User.findOne({email});
+    //     console.log(user);
+
+    // }
+    // catch(err){
+    //     console.log(err);
+    // }
 }
+// module.exports.create = async function(req,res){
+//     try{
+//     const {email}=req.body;
+//     console.log(email);
+//     if(req.body.password != req.body.confirm_password){
+//         return res.redirect('back');
+//     }
+//     const olduser = await user.findOne({
+//         email:email,
+//     });
+//     console.log(olduser);
+//     if (olduser){
+//         console.log("user already exists");
+//         res.json({success:false,msg:"User already exist"});
+  
+//       }else{
+//         try{
+//           const new_email = user({
+//             email:email,
+//           });
+//           await new_email.save();
+//           res.json({success:true,msg:"data was send succesfully"});
+//         }catch{
+//           res.json({succes:false});
+//         }
+//     } 
+// }
+//     catch (err) {
+//       console.log("catched error"+err);
+//     }
+// }    
 
 // sign in and session for user
 module.exports.create_session = function(req,res){

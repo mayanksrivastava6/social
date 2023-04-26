@@ -2,7 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
 
-const connectDB = require('./config/mongoose');
+const dbconnection = require('./dbconnect/dbconnection');
 const port = 4000;
    
 
@@ -14,7 +14,6 @@ app.use('/' , require('./routes'));
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
-
 app.listen(port, function(err){
     if(err){
         console.log('Error in running the server',{err});
@@ -23,3 +22,4 @@ app.listen(port, function(err){
 
     console.log('Server is running on port:',{port});
 });
+dbconnection();
