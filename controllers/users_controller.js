@@ -35,7 +35,7 @@ module.exports.signIn =  function(req, res){
     })
 }
 // sign up
-module.exports.create = async function(req, res){
+module.exports.create = function(req, res){
     if (req.body.password != req.body.confirm_password){
         return res.redirect('back');
     }

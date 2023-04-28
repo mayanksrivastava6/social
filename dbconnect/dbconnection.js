@@ -6,7 +6,7 @@ const dbconnection = async () => {
   try {
    
     mongoose.set('strictQuery', true);
-    await mongoose.connect('mongodb+srv://mayank:6stHJIBXSUAFR09c@webserver.6vsbgqn.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true},() => {
+    await mongoose.connect('mongodb+srv://mayank:d2SIPtnRpkuef0iv@webserver.6vsbgqn.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true},() => {
       console.log("db connection successful");
     });
   } catch (err) {
