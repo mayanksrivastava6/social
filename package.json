@@ -4,7 +4,7 @@
   "description": "my second application",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon idex.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -23,6 +23,7 @@
     "express-session": "^1.17.3",
     "mongoose": "^6.10.0",
     "passport": "^0.6.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "test": "^3.3.0"
   }
 }
