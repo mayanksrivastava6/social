@@ -20,5 +20,10 @@ router.post('/create-session', passport.authenticate(
     {failureRedirect: '/users/sign-in'},
 ), usersController.createSession);
 
+router.get('/sign-out', usersController.destroySession);
 
+// router.get('/sign-out', function(req, res){
+//     req.logout();
+//     res.redirect('/'); //Can fire before session is destroyed?
+//   });
 module.exports = router;

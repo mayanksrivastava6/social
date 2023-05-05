@@ -1,15 +1,28 @@
-<!-- <html>
-    <head>
-        <title>
-            <%= title %>
-        </title>
+<link rel="stylesheet" href="/assets/user_profile.css">
+<header>
+    Page Header
 
-    </head>
+    <ul>
+        <% if (locals.user) {%>
+            <li> <a href="/users/profile">
+                <!-- <%= user.name %> -->
+                My Profile
+            </a></li>
+            <li>
+                <a href="/users/sign-out">Sign Out</a>
+            </li>
+            <% }else{%>
+                <li>
+                 <a href="/users/sign-in">Sign-in</a>   
+                </li>
 
-    <body>
-        <h1>media / <%= title %></h1>
-    </body>
-</html> -->
+                <li>
+                    <a href="/users/sign-up">Sign Up</a>
+                </li>
+
+           <% } %>
+    </ul>
+</header>
 <h1>
     Codeial / <%= title %>
 </h1>
