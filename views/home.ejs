@@ -10,7 +10,7 @@
     <body>
     <header>
     Page Header
-
+      
     <ul>
         <% if (locals.user) {%>
             <li> <a href="/users/profile">
@@ -38,7 +38,7 @@
 
 <section id="feed-posts">
     <h4>Post</h4>
-    <form action="" Id="new-post-form" method="POST">
+    <form action="/posts/create" Id="new-post-form" method="POST">
         <textarea name="content" cols="30" rows="3" placeholder="Type Here..."></textarea>
         <input type="submit" value="Post">
     </form>
