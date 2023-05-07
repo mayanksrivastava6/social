@@ -14,7 +14,7 @@
     <ul>
         <% if (locals.user) {%>
             <li> <a href="/users/profile">
-                <!-- <%= user.name %> -->
+             
                 My Profile
             </a></li>
             <li>
@@ -33,14 +33,34 @@
     </ul>
 </header>
 <h1>
-    Codeial / <%= title %>
+    <%= title %>
 </h1>
 
 <section id="feed-posts">
-    <h4>Post</h4>
+    <h4>Posts</h4>
     <form action="/posts/create" Id="new-post-form" method="POST">
         <textarea name="content" cols="30" rows="3" placeholder="Type Here..."></textarea>
         <input type="submit" value="Post">
     </form>
+
+    <div id="posts-list-container">
+        <ul>
+            <% for(post of posts) { %>
+                
+            <li>
+                <p>
+                    <%= post.content %>
+                    
+                    <br>
+                        <%= post.name %>
+                    
+                </p>
+                
+            </li>
+                
+            <%} %>
+        </ul>
+    </div>
+
 </section>
 </body>
