@@ -13,6 +13,11 @@ const postSchema = new mongoose.Schema({
     user:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
+    },
+    //includec the id of array in schema
+    comments: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'comment'
     }
 },
 {
