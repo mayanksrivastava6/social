@@ -17,7 +17,7 @@ const postSchema = new mongoose.Schema({
     //includec the id of array in schema
     comments: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'comment'
+        ref: 'Comment'
     }
 },
 {
