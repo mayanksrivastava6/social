@@ -2,23 +2,27 @@ const mongoose = require('mongoose');
 
 
 const postSchema = new mongoose.Schema({
-    name:{
-        type: String,
-        required: true,
-    },
+    // name:{
+    //     type: String,
+    //     required: true,
+    // },
     content: {
         type: String,
         require: true
     },
-    user:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
-    },
+    user:
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ,
     //includec the id of array in schema
-    comments: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comment'
-    }
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Comment'
+        }
+    ]
 },
 {
     timestamps: true
