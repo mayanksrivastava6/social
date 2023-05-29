@@ -6,7 +6,7 @@ const usersController =require('../controllers/users_controller');
 const Passport = require('../dbconnect/passport-local-strategy');
 
 
-router.get('/profile',Passport.checkAuthentication, usersController.profile);
+router.get('/profile/:id',Passport.checkAuthentication, usersController.profile);
 
 router.get('/sign-up', usersController.signUp);
 router.get('/sign-in', usersController.signIn);
