@@ -1,11 +1,16 @@
 <head>
 
-   
+<!--    
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
         <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="/css/layout.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/footer.css">
 
+        
 
+        
     </head>
     <body>
         <% if(flash.success && flash.success.length > 0){ %>
@@ -44,6 +49,8 @@
 </h1>
 
 <section id="feed-posts">
+
+    <div id="feed_posts1">
     <h4>Posts</h4>
     <%if(locals.user){%>
     <form action="/posts/create" Id="new-post-form" method="POST">
@@ -60,15 +67,25 @@
             <%} %>
         </ul>
     </div>
+</div>
 
-</section>
-
-<section id="user-friends">
+<div id="user-friends">
     <h4>Friends</h4>
     <% for(u of all_users){%>
         <p>
             <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
         </p>
     <% } %>
+</div>
+
 </section>
+
+<!-- <section id="user-friends">
+    <h4>Friends</h4>
+    <% for(u of all_users){%>
+        <p>
+            <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
+        </p>
+    <% } %>
+</section> -->
 </body>

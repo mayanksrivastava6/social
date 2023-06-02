@@ -1,3 +1,48 @@
+
+
 body{
     background-color: rgb(162, 209, 224);
 }
+ul {
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+    /* float: left; */
+
+  }
+  ul li{
+    float: right;
+    list-style: none;
+    padding: 10px ;
+    left: 80px;
+  }
+  #feed-posts{
+    border:1px solid pink;  
+    padding:369px;  
+    margin:10px;  
+    float: left;
+    height: 636px;
+    padding-top: 20px;
+  }
+  /* #users-friends{
+    
+  } */
+
+  #feed_posts1{
+    width: 48%;
+  
+    padding-top: 0px;
+    float: left;
+    text-align: left;
+
+  }
+  #user-friends{
+    width: 48%;
+    
+    float: right;
+    text-align: right;
+}
+#posts-list-container{
+    text-align: left;
+}
+
+
