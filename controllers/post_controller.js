@@ -13,15 +13,7 @@ module.exports.create = async function(req, res){
     console.log('Error', err);
     return;
   }
-    //  let post=await Post.create({
-    //     content: req.body.content,
-    //     user: req.user._id,
-    //  })
-      //  },function(err,post){
-      // if(err){console.log('error in creating a post'); return;}
-
-      //   return res.redirect('back');
-      // });
+   
 }
 
 
@@ -49,14 +41,5 @@ module.exports.destroy = async function(req, res)
 }
 };
 
-  //   if(post.user == req.user.id){
-  //     post.remove();
-        
-  //       Comment.deleteMany({post: req.params.id}, function(err){
-  //         return res.redirect('back');
-  //       });
-  //   }else{
-  //     return res.redirect('back');
-  //   }
-  // });
+  
  

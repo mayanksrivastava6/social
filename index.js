@@ -7,6 +7,8 @@ const dbconnection = require('./dbconnect/dbconnection');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./dbconnect/passport-local-strategy');
+const flash = require('connect-flash');
+const customMware = require('./dbconnect/middleware');
 // const port = 4000;
    
 
@@ -40,6 +42,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 // app.use(passport.checkAuthentication);
 app.use(passport.setAuthenticatedUser);
+
+app.use(flash());
+app.use(customMware.setFlash);
 
 app.use('/' , require('./routes'));
 

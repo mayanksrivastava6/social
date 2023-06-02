@@ -21,17 +21,7 @@ module.exports.create = async function(req, res){
         console.log('Error', err);
         return;
     }
-//    let post=await Post.findById(req.body.post)
-     
-//         if (post){
-//             Comment.create({
-//                 content: req.body.content,
-//                 post: req.body.post,
-//                 user: req.user._id
-//             }
-            
-//             );
-//         }
+
    
 
 }

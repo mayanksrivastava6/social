@@ -85,18 +85,30 @@ module.exports.create = function(req, res){
 
 // sign in and session for user
 module.exports.createSession = function(req, res){
+    req.flash('success', 'Logged in Successfully');
     return res.redirect('/');
     //todo
 }
 
-module.exports.destroySession = function(req, res, next){
-    // req.logout();
-    req.logout((err)=>
+module.exports.destroySession = async function(req, res){
+
+    // req.flash('success', 'You have Logged out');
+   try{
+//    let user= await req.logout();
+     req.logout((err)=>
     {
         console.log(err)
     }
     );
+    req.flash('success', 'You have Logged out!');
+    
     return res.redirect('/');
+   }
+    catch(err)
+    {
+        console.log('ERROR', err);
+        return;
+    }
     
 
 }
