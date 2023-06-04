@@ -17,6 +17,8 @@ app.use(express.urlencoded());
 app.use(cookieParser());
 
 app.use(express.static('./assets'));
+//make the upload parts available
+app.use('/uploads', express.static(__dirname +'/uploads'));
 
 // app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
