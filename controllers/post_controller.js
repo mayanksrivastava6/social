@@ -28,8 +28,8 @@ module.exports.create = async function(req, res){
 
 module.exports.destroy = async function(req, res)
 {
-  try
-{
+ 
+ try {
 
  let post=await Post.findById(req.params.id);
 // .id means converting the objecct id into string
