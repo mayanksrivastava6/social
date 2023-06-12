@@ -1,3 +1,7 @@
 body{
     background-color: rgb(162, 209, 224);
 }
+
+img{
+    border-radius: 100%;
+}
