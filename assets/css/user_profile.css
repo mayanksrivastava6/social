@@ -1,7 +1,17 @@
 body{
     background-color: rgb(162, 209, 224);
+    text-align: center;
+
 }
+
+p {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+    text-align: center;
+  }
 
 img{
     border-radius: 100%;
+    
 }

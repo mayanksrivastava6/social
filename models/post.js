@@ -10,11 +10,12 @@ const postSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    user:
+    user:    
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
         }
+    
     ,
     //includec the id of array in schema
     comments: [

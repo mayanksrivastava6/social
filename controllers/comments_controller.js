@@ -1,6 +1,7 @@
 const Comment =require('../models/comment');
 const Post = require('../models/post');
-
+const commentsMailer = require('../mailer/comment_mail')
+const user =require('../models/user');
 module.exports.create = async function(req, res){
     try{
         let post=await Post.findById(req.body.post)
@@ -11,8 +12,23 @@ module.exports.create = async function(req, res){
                 post: req.body.post,
                 user: req.user._id
             });
+            console.log(req.body.content);
+            
             post.comments.push(comment);
             post.save();
+
+            // comment = await comment.populate('user', 'name email').execPopulate();
+            commentsMailer.newComment(comment);
+            if (req.xhr){
+                
+    
+                return res.status(200).json({
+                    data: {
+                        comment: comment
+                    },
+                    message: "Post created!"
+                });
+            }
 
             res.redirect('/');
 
@@ -48,18 +64,5 @@ module.exports.destroy = async function(req, res){
         console.log('Error', err);
         return;
     }
-    // let comment=await Comment.findById(req.params.id, function(err, comment){
-    //     if(comment.user == req.user.id){
-
-    //         let postId = comment.post;
-
-    //         comment.remove();
-
-    //         Post.findByIdAndUpdate(postId, { $pull: {comments: req.params.id}}, function(err, post){
-    //             return res.redirect('back');
-    //         })
-    //      }else{
-    //         return res.redirect('back');
-    //     }
-    // });
+   
 }
