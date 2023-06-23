@@ -9,7 +9,7 @@ const passport = require('passport');
 const passportLocal = require('./dbconnect/passport-local-strategy');
 const passportJWT = require('./dbconnect/passport-jwt-strategy');
 const passportGoogle = require('./dbconnect/passport-google-oauth2-strategey');
-
+const redis =  require('redis');
 const flash = require('connect-flash');
 const customMware = require('./dbconnect/middleware');
 // const port = 4000;
