@@ -259,8 +259,34 @@ module.exports.sendOTP = async function(req, res)  {
     }
   }
 
-// module.exports.generateOtp = (
-//     otp = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false }),
-//     console.log(otp)
+  module.exports.reset = async function (req, res) {
+    try {
+      //console.log(req.route.path);
+      const { email, password } = req.body;
+      const user = await UserModel.findOne({ email });
+      const userotp = await otpModel.findOne({ email });
+      if (!userotp) throw new Error("Verification Timed OUT");
+      if (!user) throw new Error("No user found!");
 
-// );
+      if (userotp.verify == true) {
+        const result = await bcrypt.compare(password, user.password);
+        if (result) throw new Error("Please Change to new Password");
+        const passwordHash = await bcrypt.hash(password, 12);
+        user.password = passwordHash;
+        user.save();
+        userotp.verify = false;
+        userotp.save();
+
+        res.status(200).json({
+          success: true,
+          msg: "password changed successfully",
+        });
+      } else
+        res
+          .status(400)
+          .json({ success: false, msg: "OTP verification Incomplete" });
+    } catch (error) {
+      res.status(400).json({ success: false, msg: error.message });
+      console.log(error);
+    }
+  }
