@@ -239,14 +239,19 @@ module.exports.sendOTP = async function(req, res)  {
   module.exports.verify= async function(req, res)  {
     try {
     //   console.log(req.route.path);
-      const { email, otp } = req.body;
+     const { email } = req.body;
+      const { otp } = req.body;
+      console.log(otp);
+      console.log(email);
+      
       const user = await User.findOne({email});
-      const userotp = await Otp.findOne({ email });
+      const userotp = await Otp.findOne({otp});
       // console.log(user);
       console.log(userotp);
-      if (!userotp) throw new Error("OTP timed out.");
-      if (!user) throw new Error("No user found!");
-      if (userotp.otp == otp) {
+      // if (!userotp) throw new Error("OTP timed out.");
+      // if (!user) throw new Error("No user found!");
+      
+      if (userotp.otp===otp) {
         res.status(200).json({
           success: true,
           msg: "user verified",
