@@ -19,7 +19,13 @@ const commentSchema = new mongoose.Schema({
     },
     email:{
         type:String
-    }
+    },
+    like: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Like'
+        }
+    ]
 },{
     timestamp: true
 });
