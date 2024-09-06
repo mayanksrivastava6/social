@@ -4,7 +4,7 @@ require("dotenv").config();
 
 const dbconnection = async () => {
   try {
-   
+    console.log("yes");
     mongoose.set('strictQuery', true);
     await mongoose.connect('mongodb+srv://mayank:d2SIPtnRpkuef0iv@webserver.6vsbgqn.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true},() => {
       console.log("db connection successful");
